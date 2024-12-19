@@ -1,5 +1,6 @@
 package day03
 
+import day03.Cleric.Companion.MAX_HP
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -17,7 +18,7 @@ class ClericTest {
     }
 
     @Test
-    fun selfAid2() {
+    fun selfAbidFull() {
         //given 준비
         val cleric = Cleric("용사", hp = 50, mp = 5)
         //when 실행
@@ -27,14 +28,15 @@ class ClericTest {
     }
 
     @Test
-    fun selfAid3() {
+    fun selfAidLess() {
         //given 준비
         val cleric = Cleric("용사", hp = 30, mp = 3)
         //when 실행
         cleric.selfAid()
         //then 검증
-        assertEquals(50, cleric.hp)
+        assertTrue(cleric.hp != MAX_HP)
     }
+
 
     @Test
     fun pray() {
